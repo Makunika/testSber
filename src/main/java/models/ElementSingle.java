@@ -1,24 +1,19 @@
 package models;
 
-import java.util.LinkedList;
-import java.util.List;
-
-public class ElementList extends Element {
-
+public class ElementSingle extends Element {
     private String key;
-    private List<Element> children;
-
+    private String value;
     private Element parent;
 
-    public ElementList(String key) {
+    public ElementSingle(String key, String value) {
         super();
         this.key = key;
-        this.children = new LinkedList<>();
+        this.value = value;
         this.parent = null;
     }
 
-    public ElementList(String key, ElementList parent) {
-        this(key);
+    public ElementSingle(String key, String value, ElementList parent) {
+        this(key, value);
         this.parent = parent;
     }
 
@@ -30,12 +25,12 @@ public class ElementList extends Element {
         this.key = key;
     }
 
-    public List<Element> getChildren() {
-        return children;
+    public String getValue() {
+        return value;
     }
 
-    public void setChildren(List<Element> children) {
-        this.children = children;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
@@ -47,5 +42,4 @@ public class ElementList extends Element {
     public void setParent(Element parent) {
         this.parent = parent;
     }
-
 }

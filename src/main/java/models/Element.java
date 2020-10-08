@@ -1,27 +1,22 @@
 package models;
 
-public class Element {
-    private String key;
-    private String value;
+public abstract class Element {
+    private int id;
 
-    public Element(String key, String value) {
-        this.key = key;
-        this.value = value;
+
+    public Element() {
+        this.id = IdGet.getNewId();
     }
 
-    public String getKey() {
-        return key;
+    public abstract Element getParent();
+    public abstract void setParent(Element parent);
+
+
+    public int getId() {
+        return id;
     }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
+    public void setId(int id) {
+        this.id = id;
     }
 }
