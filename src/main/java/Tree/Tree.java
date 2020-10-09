@@ -42,6 +42,7 @@ public class Tree {
     public void saveToDb() {
         try {
             ElementDao elementDao = new ElementDao();
+            elementDao.deleteAll();
             elementDao.saveElementList(root);
             saveToDb(elementDao, root);
 

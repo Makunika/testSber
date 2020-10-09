@@ -33,9 +33,6 @@ public class ParseData {
             Matcher matcher = pattern.matcher(data);
             int checkScobe = 0;
             while(matcher.find()) {
-                for (int i = 0; i < matcher.groupCount(); i++) {
-                    System.out.println(matcher.group(i));
-                }
                 if (matcher.group(3) != null && matcher.group(3).equals("{")) {
                     //its list
                     tree.addElementList(matcher.group(2));
@@ -48,12 +45,10 @@ public class ParseData {
                     tree.toDown();
                     checkScobe--;
                 }
-                System.out.println();
             }
             if (checkScobe != 0) {
                 throw new WrongDataException();
             }
-            System.out.println("Done");
 
         } else {
             throw new WrongDataException();

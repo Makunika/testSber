@@ -41,4 +41,9 @@ public class ElementDao {
         ps.execute();
     }
 
+    public void deleteAll() throws SQLException {
+        String query = "DELETE FROM public.elements";
+        connection.prepareStatement(query).execute();
+    }
+
 }
